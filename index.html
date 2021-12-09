@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+    <link rel="icon" type="image/x-icon" href="./assets/img/header_logo.png">
+    <link rel="stylesheet" href="./assets/css/header_style.css">
+    <link rel="stylesheet" href="./assets/css/content.css">
+    <link rel="stylesheet" href="./assets/css/ShoppingCart.css">
+    <link rel="stylesheet" href="./assets/css/footer_base.css">
+    <link rel="stylesheet" href="./assets/css/footer_style.css">
+    <script src="myscript.js"></script>
+    <title>QQTT Coffee</title>
+</head>
+<body>
+    
+    <div id="header">
+        <div class="sub_header">
+            <div class="container">
+                <div class="sub_container">
+                    <div class="ctn_left">
+                        <img src="assets/img/header_delivery.png" alt="">
+                    </div>
+                    <div class="ctn_mid">
+                        <a href=""><img src="assets/img/header_logo.png" alt=""></a>
+                    </div>
+
+                    <!--Default-->
+                    <div id="none" class="ctn_right">
+                        <div class="account">
+                            <i class="fas fa-user-alt"></i>
+                            <div class="sub_account">
+                                <span onclick="showLogIn()">Đăng nhập</span>
+                                <p>/</p>
+                                <span class="login" onclick="showRegister()">Đăng ký</span>
+                            </div>
+                        </div>
+                        <div class="cart" onclick="showCart()">
+                            <span>Giỏ hàng</span>
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>    
+                    </div>
+                    
+                    <!--Client-->
+                    <div id="client" class="ctn_right_clt">
+                        <div class="account_clt">
+                            <i class="fas fa-user-alt"></i>
+                            <div class="sub_account_clt">
+                                <span id="clientName" class="name">Name</span>
+                                <span class="clt" onclick="logout()">Đăng xuất</span>
+                            </div>
+                            
+                        </div>
+                        <div class="cart_clt" onclick="navBuy()">
+                            <span>Giỏ hàng</span>
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>    
+                    </div>
+
+                    <!--Admin-->
+                    <div id="admin" class="ctn_right_ad">
+                        <div class="account_ad">
+                            <i class="fas fa-user-alt"></i>
+                            <div class="sub_account_ad">
+                                <span id="adminName" class="name">Admin</span>
+                                <span class="clt" onclick="logout()">Đăng xuất</span>
+                            </div>
+                            
+                        </div>
+                        <div class="cart_ad" onclick="setting()">
+                            <span>Setting</span>
+                            <i class="fas fa-cogs"></i>
+                        </div>    
+                    </div>
+                </div> 
+                
+                
+            </div>
+
+            <div id="menu">
+                <div id="sub_menu">
+                    <div class="nav_menu">
+                        <ul>
+                            <li onclick="navPage('all')">Trang chủ</li>
+                            <li onclick="navPage('coffee')">Cà phê</li>
+                            <li onclick="navPage('tea')">Trà</li>
+                            <li onclick="navPage('soda')">Nước ngọt</li>
+                        </ul>
+                    </div>
+                    <div id="search_box">
+                        <div class="sub_search">
+                            <input oninput="search()" type="text" id="search_txt" class="search_txt" placeholder="Bạn muốn tìm gì?...">
+                            <div class="search_icon">
+                                <i class="icon_search fas fa-search"></i>
+                            </div>
+                        </div> 
+                    </div>   
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="slider">
+    <img src="./assets/img/header_slider.jpg" alt="slider">
+    </div> 
+
+    <!--Modal_Log-->
+    <div id="modal_log" class="modal_log">
+        <div class="modal_container">
+            <div class="modal_close" onclick="closeLogIn()">
+                <i class="fas fa-times"></i>
+            </div>
+            <header class="container_header">
+                <i class="modal_heading_icon fas fa-american-sign-language-interpreting"></i>
+                QQTT
+                <!-- <img src="assets/css/img/logo/logo3.jpg" alt=""> -->
+            </header>
+
+            <div class="modal_body">
+                <label for="log1" class="modal_label">
+                    <i class="fas fa-user-circle"></i>
+                    Tài khoản
+                </label>
+                <input id="log1" type="text" class="modal_input" placeholder="Nhập tài khoản...">
+                
+                <label for="log2" class="modal_label">
+                    <i class="fas fa-unlock"></i>
+                    Mật khẩu
+                </label>
+                <input id="log2" type="password" class="modal_input" placeholder="Nhập mật khẩu...">
+                
+                <button id="buy-tickets" onclick="login()">
+                    Login <i class="fas fa-sign-in-alt"></i>
+                    
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Modal-Register-->
+    <div id="modal-register" class="modal-register">
+        <div class="modal-container">
+            <div class="modal-close" onclick="closeRegister()">
+                <i class="fas fa-times"></i>
+            </div>
+            <header class="modal-header">
+                <i class="modal-heading-icon fas fa-american-sign-language-interpreting"></i>
+                QQTT
+            </header>
+
+            <div class="modal-body">
+                <!--Body Left-->
+                <div class="body-left">
+                    <label for="rgt1" class="modal-label">
+                        <i class="fas fa-user-alt"></i>
+                        Full name  
+                    </label>
+                    <input id="rgt1" type="text" class="modal-input" placeholder="Nhập họ và tên...">
+
+                    <label for="rgt2" class="modal-label">
+                        <i class="fab fa-google"></i>
+                        Email  
+                    </label>
+                    <input id="rgt2" type="text" class="modal-input" placeholder="Nhập địa chỉ Email...">
+            
+                    <label for="rgt3" class="modal-label">
+                        <i class="fas fa-phone"></i>
+                        Phone number
+                    </label>
+                    <input id="rgt3" type="text" class="modal-input" placeholder="Nhập số điện thoại...">
+                </div>   
+                <!--Body Right-->
+                <div class="body-right">
+                    <label for="rgt4" class="modal-label">
+                        <i class="fas fa-user-circle"></i>
+                        Username 
+                    </label>
+                    <input id="rgt4" type="text" class="modal-input" placeholder="Nhập tài khoản...">
+
+                    <label for="rgt5" class="modal-label">
+                        <i class="fas fa-unlock"></i>
+                        Password
+                    </label>
+                    <input id="rgt5" type="password" class="modal-input" placeholder="Nhập mật khẩu...">
+            
+                    <label for="rgt6" class="modal-label">
+                        <i class="fas fa-unlock"></i>
+                        Retype Password
+                    </label>
+                    <input id="rgt6" type="password" class="modal-input" placeholder="Nhập lại mật khẩu...">
+                </div>
+                
+                <button id="continue-tickets" onclick="register()">
+                    Đăng ký
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+
+        <!-- Category-drink -->
+        <div id="productList" class="category-drink">
+            <!-- One item -->
+            <div class="drink-item">
+                <img class="item-image" src="./assets/img/default.png" alt="Caphe">
+                <div class="item-name">Cà phê</div>
+                <div class="item-price">25.000VNĐ</div>
+                <button class="button-order">Đặt hàng</button>
+            </div>
+            <!-- One item -->
+            <div class="drink-item">
+                <img class="item-image" src="./assets/img/default.png" alt="Caphe">
+                <div class="item-name">Cà phê</div>
+                <div class="item-price">25.000VNĐ</div>
+                <button class="button-order">Đặt hàng</button>
+            </div>
+            <!-- One item -->
+            <div class="drink-item">
+                <img class="item-image" src="./assets/img/default.png" alt="Caphe">
+                <div class="item-name">Cà phê</div>
+                <div class="item-price">25.000VNĐ</div>
+                <button class="button-order">Đặt hàng</button>
+            </div>
+            <!-- One item -->
+            <div class="drink-item">
+                <img class="item-image" src="./assets/img/default.png" alt="Caphe">
+                <div class="item-name">Cà phê</div>
+                <div class="item-price">25.000VNĐ</div>
+                <button class="button-order">Đặt hàng</button>
+            </div>
+            <!-- One item -->
+            <div class="drink-item">
+                <img class="item-image" src="./assets/img/default.png" alt="Caphe">
+                <div class="item-name">Cà phê</div>
+                <div class="item-price">25.000VNĐ</div>
+                <button class="button-order">Đặt hàng</button>
+            </div>
+            <!-- One item -->
+            <div class="drink-item">
+                <img class="item-image" src="./assets/img/default.png" alt="Caphe">
+                <div class="item-name">Cà phê</div>
+                <div class="item-price">25.000VNĐ</div>
+                <button class="button-order">Đặt hàng</button>
+            </div>
+            <!-- One item -->
+            <div class="drink-item">
+                <img class="item-image" src="./assets/img/default.png" alt="Caphe">
+                <div class="item-name">Cà phê</div>
+                <div class="item-price">25.000VNĐ</div>
+                <button class="button-order">Đặt hàng</button>
+            </div>
+            <!-- One item -->
+            <div class="drink-item">
+                <img class="item-image" src="./assets/img/default.png" alt="Caphe">
+                <div class="item-name">Cà phê</div>
+                <div class="item-price">25.000VNĐ</div>
+                <button class="button-order">Đặt hàng</button>
+            </div>
+            <!-- One item -->
+            <div class="drink-item">
+                <img class="item-image" src="./assets/img/default.png" alt="Caphe">
+                <div class="item-name">Cà phê</div>
+                <div class="item-price">25.000VNĐ</div>
+                <button class="button-order">Đặt hàng</button>
+            </div>
+            <!-- One item -->
+            <div class="drink-item">
+                <img class="item-image" src="./assets/img/default.png" alt="Caphe">
+                <div class="item-name">Cà phê</div>
+                <div class="item-price">25.000VNĐ</div>
+                <button class="button-order">Đặt hàng</button>
+            </div>
+            <!-- One item -->
+            <div class="drink-item">
+                <img class="item-image" src="./assets/img/default.png" alt="Caphe">
+                <div class="item-name">Cà phê</div>
+                <div class="item-price">25.000VNĐ</div>
+                <button class="button-order">Đặt hàng</button>
+            </div>
+            <!-- One item -->
+            <div class="drink-item">
+                <img class="item-image" src="./assets/img/default.png" alt="Caphe">
+                <div class="item-name">Cà phê</div>
+                <div class="item-price">25.000VNĐ</div>
+                <button class="button-order">Đặt hàng</button>
+            </div>
+        </div>   <!-- End Category-drink -->
+
+        <!-- Pagination -->
+        <ul id="Pagination" class="pagination space-pagination">
+            <!-- Icon left -->
+            <li class="pagination-item">
+                <div class="pagination-item-link" onclick="pageDown();">
+                    <i class="pagination-item-icon fas fa-chevron-left"></i>
+                </div> 
+            </li>
+            <!-- Item -->
+            <div id="pagination-index">
+                <li class="pagination-item pagination-item-link pagination-item--active">
+                    <div class="pagination-item-link">1</div> 
+                </li>
+                <li class="pagination-item">
+                    <div class="pagination-item-link">2</div> 
+                </li>
+                <li class="pagination-item">
+                    <div class="pagination-item-link">3</div> 
+                </li>
+                <li class="pagination-item">
+                    <div class="pagination-item-link">...</div> 
+                </li>
+                <li class="pagination-item">
+                    <div class="pagination-item-link">6</div> 
+                </li>
+            </div>
+            <!-- Icon right -->
+            <li class="pagination-item">
+                <div class="pagination-item-link" onclick="pageUp();">
+                    <i class="pagination-item-icon fas fa-chevron-right"></i>
+                </div> 
+            </li>
+        </ul> <!-- End Pagination-->
+
+        <!-- Modal container -->
+        <div id="modal-order" class="modal-order">
+            <div class="modal-overlay"></div>
+
+            <div class="modal-body">
+                <div class="modal-close" onclick="closeOrderModal()">
+                    <i class="modal-close-icon fas fa-times"></i>
+                </div>
+                <div class="modal-row">
+
+                    <div class="modal-image">
+                        <img src="./assets/img/default.png" alt="Caphe" class="image-item">
+                        <div id="rootPrice" class="modal-image-price">25.000VNĐ</div>
+                    </div>
+
+                    <div class="modal-info">
+                        <div class="modal-item-info">
+                            <div id="order-name" class="modal-name">Cà phê</div>
+                            <div class="modal-size">
+                                <div class="font">Kích cỡ</div>
+                                <button id="size-1" class="size" onclick="changeSize(1)">S</button>
+                                <button style="border-color: orange;" id="size-2" class="size" onclick="changeSize(2)">M</button>
+                                <button id="size-3" class="size" onclick="changeSize(3)">L</button>
+                            </div>
+                            <div class="modal-quantity">
+                                <div class="font">Số lượng</div>
+                                <span class="change-qty decrease" onclick="decQuantity()">-</span>
+                                <span id = "quantity" class="quantity ng-binding">1</span>
+                                <span class="change-qty increase" onclick="incQuantity()">+</span>
+                            </div>
+                            <div class="modal-note">
+                                <div class="font">Ghi chú</div>
+                                <textarea name="txtComment" id="txtComment" rows="4" cols="28"></textarea>
+                            </div>
+                            <div class="modal-price">
+                                <div class="font">Giá</div>
+                                <div id="curPrice" class="modal-item-price">25.000VNĐ</div>
+                            </div>
+                        </div>
+                        <div id="order-button" class="order-button">      
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End Modal -->
+
+        <div id="shopping-cart" class="shopping-cart">
+            <div class="SC-tab-show">
+                <div class="top-tab">CHI TIẾT ĐƠN HÀNG</div>
+
+                <div class="title-item">
+                    <div class="pay-item font">Sản phẩm</div>
+                    <div class="pay-attribute">
+                        <div class="pay-note font">Ghi chú</div>
+                        <div class="pay-price font">Giá</div>
+                        <div class="pay-quantity font">Số lượng</div>
+                        <div class="total-item font">Tổng tiền</div>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+
+                <div id="cartList" class="info-item">
+                    <!-- One item -->
+                    <div class="sub-item">
+                        <div class="item-image">
+                            <img class="item-img" src="/HTML,CSS/QTQT/Assets/Images/Caphe.jpg" alt="Caphe">
+                        </div>
+                        <div class="item-PQT">
+
+                            <div class="item-name-extra">
+                                <div class="item-title">Cà phê</div>
+                                <ul class="item-note">
+                                    <li class="item-note-size font-note">Size S</li>
+                                    <li class="item-note-notes font-note">Không đá</li>
+                                </ul>
+                            </div>
+
+                            <div class="item-price">25000VNĐ</div>
+
+                            <div class="item-quantity">
+                                <span class="change-qty decrease" ng-click="decrease(product)">-</span>
+                                <span class="quantity ng-binding">1</span>
+                                <span class="change-qty increase" ng-click="increase(product)">+</span>
+                            </div>
+
+                            <div class="total-all-item">
+                                <div class="total-all-price">   25000VNĐ</div>
+                                <i class="icon-shopping-cart fas fa-times"></i>
+                                <div style="clear:both"></div>
+                            </div>
+
+                        </div>
+                        <div style="clear:both"></div>
+                    </div> <!-- End One item -->
+                    <!-- One item -->
+                    <div class="sub-item">
+                        <div class="item-image">
+                            <img class="item-img" src="/HTML,CSS/QTQT/Assets/Images/Caphe.jpg" alt="Caphe">
+                        </div>
+                        <div class="item-PQT">
+
+                            <div class="item-name-extra">
+                                <div class="item-title">Cà phê</div>
+                                <ul class="item-note">
+                                    <li class="item-note-size font-note">Size S</li>
+                                    <li class="item-note-notes font-note">Không đá</li>
+                                </ul>
+                            </div>
+
+                            <div class="item-price">25000VNĐ</div>
+
+                            <div class="item-quantity">
+                                <span class="change-qty decrease" ng-click="decrease(product)">-</span>
+                                <span class="quantity ng-binding">1</span>
+                                <span class="change-qty increase" ng-click="increase(product)">+</span>
+                            </div>
+
+                            <div class="total-all-item">
+                                <div class="total-all-price">   25000VNĐ</div>
+                                <i class="icon-shopping-cart fas fa-times"></i>
+                                <div style="clear:both"></div>
+                            </div>
+
+                        </div>
+                        <div style="clear:both"></div>
+                    </div> <!-- End One item -->
+                    <!-- One item -->
+                    <div class="sub-item">
+                        <div class="item-image">
+                            <img class="item-img" src="/HTML,CSS/QTQT/Assets/Images/Caphe.jpg" alt="Caphe">
+                        </div>
+                        <div class="item-PQT">
+
+                            <div class="item-name-extra">
+                                <div class="item-title">Cà phê</div>
+                                <ul class="item-note">
+                                    <li class="item-note-size font-note">Size S</li>
+                                    <li class="item-note-notes font-note">Không đá</li>
+                                </ul>
+                            </div>
+
+                            <div class="item-price">25000VNĐ</div>
+
+                            <div class="item-quantity">
+                                <span class="change-qty decrease" ng-click="decrease(product)">-</span>
+                                <span class="quantity ng-binding">1</span>
+                                <span class="change-qty increase" ng-click="increase(product)">+</span>
+                            </div>
+
+                            <div class="total-all-item">
+                                <div class="total-all-price">   25000VNĐ</div>
+                                <i class="icon-shopping-cart fas fa-times"></i>
+                                <div style="clear:both"></div>
+                            </div>
+
+                        </div>
+                        <div style="clear:both"></div>
+                    </div> <!-- End One item -->
+                    
+                    
+                </div>
+
+                <div class="total-money">
+                    <div class="index">.</div>
+                    <div class="total-money-bill">Tổng tiền:</div>
+                    <div id="total-price" class="total-price">25000VNĐ</div>
+                    <div style="clear:both"></div>
+                </div>  
+
+                <div class="address">
+                    <div class="sub-address font">Địa chỉ:</div>
+                    <input id="addressCart" class="typeahead" type="text" autocomplete="off">
+                </div>
+
+                <div class="pay-button">
+                    <button class="pay-bill button" onclick="successOrder()">Đặt Hàng</button>
+                    <button class="delete-bill button" onclick="deleteAllCart()">Xoá Giỏ Hàng</button>
+                </div>
+            </div>
+        </div> <!-- Shopping cart end -->
+    </div>  <!-- End Container -->
+
+    <footer>
+        <div class="footer-container">
+            <div class="col-9 footer-info">
+                <img class="footer-logo" src="./assets/img/header_logo.png" alt="">
+                <p>Đây là website chính thức của Bamboo Airways, nghiêm cấm mọi cá nhân/ tổ chức sao  chép và sử dụng thông tin mà chưa có sự cho phép của Bamboo Airways. Điều khoản sử dụng Website tại đây.</p>
+                <div class="footer-content-icon">
+                    <i class="fab fa-facebook-square"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-youtube"></i>
+                    <i class="fab fa-google"></i>
+                </div>
+            </div>
+            <div class="col-3 footer-contact">
+                <h6>Bạn cần trợ giúp? Hãy gọi ngay</h6>
+                <p class="footer-phone">
+                    <i class="fas fa-phone"></i>
+                    18006779
+                </p>
+                <div class="footer-contact-mess">
+                    <i class="fab fa-facebook-messenger"></i>
+                    <p>Nhắn tin với chúng tôi</p>
+                </div>
+                <p class="footer-invite">Đặt phòng dễ dàng hơn qua ứng dụng AQ</p>
+                <div>
+                    <img class="footer-qr-code" src="./assets/img/download/qr-code.png" alt="">
+                    <div class="footer-down">
+                        <img src="./assets/img/download/appstore.png" alt="">
+                        <img src="./assets/img/download/google-play.png" alt="">
+                    </div>
+                </div>
+            </div>                
+        </div>
+    </footer>
+</body>
+</html>
