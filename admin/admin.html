@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/admin_style.css">
+    <link rel="stylesheet" href="../assets/css/admin_grid.css">
+    <link rel="stylesheet" href="../assets/font/themify-icons/themify-icons.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/header_logo.png">
+    <script src="admin.js"></script>
+    <title>Admin</title>
+</head>
+
+<body>
+    <div id="main">
+        <div class="frames">
+            <div class="frames_photo">
+                <img src="../assets/img/default.png" alt="">
+            </div>
+            <div class="frames_selection">
+                <ul class="menu">
+                    <li>
+                        <i class="ti-home"></i>
+                        <a href="../index.html">TRANG CHỦ</a>
+                    </li>
+                    <li>
+                        <i class="ti-cup"></i>
+                        <a href="">SẢN PHẨM</a>
+                    </li>
+                    <li>
+                        <i class="ti-calendar"></i>
+                        <a href="">QUẢN LÍ ĐƠN HÀNG</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+                <div class="frames_content">
+                    <div class="frames_button_login" onclick="logout()">
+                        <button>log out</button>
+                    </div>
+                </div>
+                <div id="search">
+                    <div class="frames_selection_left">
+                        <div class="frames_search">
+                            <div class="frames_word">
+                                <h1>DANH SÁCH SẢN PHẨM</h1>
+                            </div>
+                            <div class="frames_table">
+                                <table>
+                                    <thead>
+                                        <tr class="variation">
+                                            <th>#ID</th>
+                                            <th>ẢNH</th>
+                                            <th>TÊN SẢN PHẨM</th>
+                                            <th>PHÂN LOẠI</th>
+                                            <th>GIÁ</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id='productList'>
+                                        <tr>
+                                            <td>1</td>
+                                            <td class="table-img"><img src="./assets/img/unnamed.jpg" alt="">
+                                            </td>
+                                            <td>CÀ PHÊ SỮA ĐÁ</td>
+                                            <td>CAFE</td>
+                                            <td>50000</td>
+                                            <td>
+                                                <button class="js_button_close">Xóa </button>
+                                                <button class="js_button_fix">Sửa</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td class="table-img"><img src="./assets/img/4902102014281.jpg" alt=""></td>
+                                            <td>COCA COLA</td>
+                                            <td>NƯỚC NGỌT</td>
+                                            <td>10000</td>
+                                            <td>
+                                                <button class="js_button_close">Xóa </button>
+                                                <button class="js_button_fix">Sửa</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td class="table-img"><img src="./assets/img/images.jfif" alt="">
+                                            </td>
+                                            <td>TRÀ</td>
+                                            <td>TRÀ</td>
+                                            <td>30000</td>
+                                            <td>
+                                                <button class="js_button_close">Xóa </button>
+                                                <button class="js_button_fix">Sửa</button>
+                                            </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                                <div id="pagination" class="pagination">
+                                    <button class="js_page">1</button>
+                                    <button class="js_page">2</button>
+                                    <button class="js_page">3</button>
+                                    <button class="js_page">4</button>
+                                    <button class="js_page">5</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="search_product">
+                            <h1>TÌM KIẾM SẢN PHẨM</h1>
+                            <form action="" class="frames_form">
+                                <label for="fullname" class="form_label">TÊN SẢN PHẨM</label>
+                                <input id="searchtext" type="text" class="fullname"  oninput="search();">
+                                <label for="trademark" class="form_label2">PHÂN LOẠI</label>
+                                <select id="filter" name="" class="selection" onchange="search()">
+                                    <option value="all">TYPE</option>
+                                    <option value="coffee">CÀ PHÊ</option>
+                                    <option value="soda">NƯỚC NGỌT</option>
+                                    <option value="tea">TRÀ</option>
+                                </select>
+                                <div class="product_button">
+                                    <button type="button" class="js_product_button">Tìm kiếm</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="search_product">
+                            <h1>THÊM SẢN PHẨM</h1>
+                            <form action="" class="frames_form">
+                                <label for="fullname" class="form_label">TÊN SẢN PHẨM</label>
+                                <input id="add-name" type="text" class="fullname">
+                                <label for="trademark" class="form_label2">PHÂN LOẠI</label>
+                                <select  id="add-type" name="" class="selection" >
+                                    <option value="none">TYPE</option>
+                                    <option value="coffee">CÀ PHÊ</option>
+                                    <option value="soda">NƯỚC NGỌT</option>
+                                    <option value="tea">TRÀ</option>
+                                </select>
+                                <br>
+                                <label for="price" class="form_label2">GIÁ</label>
+                                <input  id ="add-price" type="text" class="fullname" >
+                                <label for="add-img" class="form_label2">ẢNH</label>
+                                <input type="file" id="add-img" name="add-img">
+                                <br>
+                                <button type="button" class="js_product_add" onclick="checkAndAdd()">Thêm</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div id="modal" class="modal">
+        <div class="frames_modal">
+            <div class="frames_modal_rim_icon">
+                <div class="frames_modal_icon" onclick="closeModal()">
+                    <i class="ti-close js_shut_down"></i>
+                </div>
+            </div>
+            <div class="frames_modal_photo">
+                <div class="variation_photo_one">
+                    <img src="../assets/img/4902102014281.jpg" alt="">
+                </div>
+                <div class="variation_photo_two">
+                    <img src="../assets/img/default.png" alt="">
+                </div>
+            </div>
+            <div class="frames_modal_information">
+                <div class="variation_infor_name">
+                    <label for="edit-name" class="modal_lable">Tên sản phẩm</label>
+                    <input type="text" class="modal_input" id="edit-name" name="product" value="">
+                    <br>
+                    <label for="edit-price" class="modal_lable_one">Giá</label>
+                    <input type="text" class="modal_input_one" id="edit-price" name="price" value="">
+                    <br>
+                </div>
+                <div class="variation_infor_case">
+                    <label for="" class="modal_lable_one">Loại</label>
+                <select  id="edit-type" name="" class="selection_case" >
+                    <option id="coffee" value="coffee">CÀ PHÊ</option>
+                    <option id="soda" value="soda">NƯỚC NGỌT</option>
+                    <option id="tea" value="tea">TRÀ</option>
+                </select>
+                </div>
+                <div class="button_file">
+                    <input type="file" id="add-img" name="add-img">
+                </div>
+            </div>
+            <div class="frames_modal_button">
+                <button type="button" onclick="checkAndEdit()" class="button3">Lưu chỉnh sửa</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
