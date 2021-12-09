@@ -1,0 +1,596 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+body, html {
+    height: 2000px;
+}
+
+
+
+
+/*Header*/
+#header {
+    height: 110px;
+}
+
+.sub_header {
+    right: 0;
+    left: 0;
+    position: fixed;
+    height: 110px;
+    z-index: 1;
+}
+
+.sub_header .container {
+    height: 69px;
+    background: white;
+    padding: 10px 0 5px 0;
+    border-bottom: 3px solid #F5F5F5;
+}
+/*header > container > sub_container*/
+.sub_container {
+    height: 51px;
+    padding: 0 15px;
+    margin: 0 34px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.ctn_left {
+    padding-top: 10px;
+}
+
+.ctn_left img {
+    width: 165px;
+}
+
+
+.ctn_mid {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ctn_mid img {
+    width: 77px;
+    cursor: pointer;
+}
+
+/*Class Account Default*/
+.ctn_right {
+    height: 41px;
+    padding-top: 12px;
+    display: flex;
+    font-size: 14px;
+    /*******ẨN*******/
+    /* display: none; */
+}
+
+.account{
+    display: flex;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.sub_account {
+    padding: 8px 0 0 8px;
+    display: flex;
+}
+
+
+.sub_account .login {
+    font-weight: bold ;
+}
+
+.account span:hover {
+    color: green;
+}
+
+.cart span:hover {
+    color: green;
+}
+
+.sub_account p {
+   padding: 0 4px;
+}
+
+.sub_account .login {
+    font-weight: bold;
+}
+
+.account i {
+    font-size: 28px;
+}
+
+.ctn_right .cart {
+    border: 2px solid green;
+    border-radius: 15px;
+    line-height: 25px;
+    cursor: pointer;
+}
+
+.ctn_right .cart span {
+    color: green;
+    font-weight: bold;
+    padding: 8px;
+    font-size: 12px;
+}
+
+.ctn_right .cart i {
+    color: green;
+    padding-right: 12px;
+    font-size: 18px;
+}
+
+
+/*Class Account Client*/
+.ctn_right_clt {
+    height: 41px;
+    padding-top: 12px;
+    display: flex;
+    font-size: 14px;
+    /*******ẨN********/
+    display: none;
+}
+
+
+.account_clt{
+    display: flex;
+    margin-right: 40px;
+    cursor: pointer;
+}
+
+.sub_account_clt {
+    height: 40px;
+    padding: 0 0 0 6px;
+}
+
+
+.sub_account_clt .name {
+    font-weight: bold ;
+    display: block;
+}
+
+
+.ctn_right_clt .cart_clt {
+    border: 2px solid green;
+    border-radius: 15px;
+    line-height: 25px;
+    cursor: pointer;
+}
+
+.ctn_right_clt .cart_clt span {
+    color: green;
+    font-weight: bold;
+    padding: 8px;
+    font-size: 12px;
+}
+
+.ctn_right_clt .cart_clt i {
+    color: green;
+    padding-right: 12px;
+    font-size: 18px;
+}
+
+.account_clt i {
+    font-size: 28px;
+}
+
+.ctn_right_clt .cart_clt {
+    border: 2px solid green;
+    border-radius: 15px;
+    line-height: 25px;
+    cursor: pointer;
+}
+
+.ctn_right_clt .cart_clt span {
+    color: green;
+    font-weight: bold;
+    padding: 8px;
+    font-size: 12px;
+}
+
+.ctn_right_clt .cart_clt i {
+    color: green;
+    padding-right: 12px;
+    font-size: 18px;
+}
+
+.sub_account_clt .clt {
+    font-size: 10px;
+}
+
+.sub_account_clt .clt:hover {
+    text-decoration:underline;
+}
+
+.sub_account_clt .name {
+    font-size: 12px;
+}
+
+
+/*Class Account Admin*/
+.ctn_right_ad {
+    height: 41px;
+    padding-top: 12px;
+    display: flex;
+    font-size: 14px;
+    /*******ẨN********/
+    display: none;
+}
+
+
+.account_ad {
+    display: flex;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.sub_account_ad {
+    height: 40px;
+    padding: 0 0 0 6px;
+}
+
+
+.sub_account_ad .name {
+    font-weight: bold ;
+    display: block;
+}
+
+
+.ctn_right_ad .cart_ad {
+    border: 2px solid green;
+    border-radius: 15px;
+    line-height: 25px;
+    cursor: pointer;
+}
+
+
+.ctn_right_ad .cart_ad .st {
+    color: green;
+    font-weight: bold;
+    padding: 8px;
+    font-size: 16px;
+}
+
+.ctn_right_ad .cart_ad i {
+    color: green;
+    padding-right: 12px;
+    font-size: 18px;
+}
+
+.account_ad i {
+    font-size: 28px;
+}
+
+.ctn_right_ad .cart_ad {
+    border: 2px solid green;
+    border-radius: 15px;
+    line-height: 25px;
+    cursor: pointer;
+}
+
+.ctn_right_ad .cart_ad span {
+    color: green;
+    font-weight: bold;
+    padding: 8px;
+    font-size: 12px;
+}
+
+.ctn_right_ad .cart_ad i {
+    color: green;
+    padding-right: 12px;
+    font-size: 18px;
+}
+
+.sub_account_ad .clt {
+    font-size: 10px;
+}
+
+.sub_account_ad .clt:hover {
+    text-decoration:underline;
+}
+
+.sub_account_ad .name {
+    font-size: 12px;
+}
+
+
+
+/*Menu*/
+#menu {
+    height: 41px;
+    background-color: white;
+    box-shadow: 1px 6px 25px rgb(235, 231, 231)
+}
+
+#sub_menu {
+    display: block;
+    line-height: 41px;
+    width: 100%;
+    height: 41px;
+}
+
+.nav_menu {
+    width: 80%;
+    float: left;
+}
+
+.nav_menu li {
+    display: flex;
+    float: left;
+    list-style: none
+}
+
+.nav_menu ul {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    font-weight: bold;
+    justify-content: space-around;
+}
+
+.nav_menu ul li:hover {
+    color: #0C713D;
+    cursor: pointer;
+}
+
+
+/*Search-box*/
+#search_box {
+    width: 20%;
+    float: left;
+    cursor: pointer;
+    padding-top: 4px;
+}
+
+#search_box .sub_search {
+    width: 80%;
+    height: 25px;
+    padding: 15px;
+    line-height: 41px;
+    border: 2px solid green;
+    border-radius: 30px;
+    position: relative;
+}
+
+#search_box .sub_search .search_txt {
+    width: 70%;
+    position: absolute;
+    left: 9px;
+    top: 8px;
+    border: none;
+    outline: none;
+}
+
+.icon_search {
+    color: green;
+    border: 1px solid green;
+    padding: 4px;
+    border-radius: 16px;
+}
+
+.search_icon .icon_search {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
+.search_icon .icon_search:hover {
+    color: white;
+    background: #0C713D;
+}
+/*End search*/
+
+
+#slider {
+    height: 380px;
+}
+
+#slider img {
+    width: 100%;
+    height: 381px;
+}
+
+/*Modal-log*/
+.modal_log {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*Close page Login*/
+    display: none;
+    z-index: 1;
+}
+
+.modal_container {
+    width: 500px;
+    min-height: 300px;
+    background: white;
+    position: relative;
+    border: 1px solid green;
+    border-radius: 24px;
+}
+
+.container_header {
+    height: 130px;
+    background: silver;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.modal_heading_icon {
+    margin-right: 16px;
+}
+
+.modal_close i {
+    right: 0; 
+    position: absolute;
+    padding: 10px;
+    font-size: 26px;
+}
+
+.modal_close i:hover {
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+.modal_body {
+    padding: 16px;
+}
+
+.modal_label {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+.modal_input {
+    font-size: 20px;
+    width: 100%;
+    padding: 8px;
+    border: none;
+    margin-bottom: 24px;
+}
+
+#buy-tickets {
+    color: white;
+    text-transform: uppercase;
+    width: 100%;
+    border: none;
+    padding: 14px;
+    font-size: 19px;
+    background: rgb(255, 66, 78);
+}
+
+#buy-tickets:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.footer_modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal_help {
+    padding-bottom: 10px ;
+    font-size: 15px;
+    color: rgb(120, 120, 120);
+    
+}
+
+.modal_help:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
+/*End Modal log*/
+
+/*Modal-Register*/
+.modal-register {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*Close page Login*/
+    display: none;
+    z-index: 1;
+}
+
+.modal-container {
+    width: 800px;
+    min-height: 300px;
+    background: white;
+    position: relative;
+}
+
+.modal-header {
+    height: 130px;
+    background: silver;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.modal-heading-icon {
+    margin-right: 16px;
+}
+
+.modal-close i {
+    position: absolute;
+    right: 0;
+    padding: 10px;
+    font-size: 26px;
+}
+
+.modal-close i:hover {
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 16px;
+    position: relative;
+}
+
+.modal-label {
+    font-weight: bold;
+    display: block;
+    font-size: 15px;
+    margin-bottom: 12px;
+    
+}
+
+.modal-input {
+    font-size: 20px;
+    width: 90%;
+    padding: 8px;
+    border: none;
+    margin-bottom: 24px;
+}
+.modal-body .body-right,
+.modal-body .body-left {
+    padding: 20px;
+    width: 50%;
+    float: left;
+}
+
+
+#continue-tickets {
+    color: white;
+    text-transform: uppercase;
+    width: 100%;
+    border: none;
+    padding: 14px;
+    font-size: 19px;
+    background: rgb(255, 66, 78);
+}
+
+#continue-tickets:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+/***********************/
+
